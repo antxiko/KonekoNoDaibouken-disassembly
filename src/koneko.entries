@@ -1,0 +1,25 @@
+# Puntos de entrada que el trazado NO puede deducir solo.
+#
+# Cada uno lleva escrito POR QUE hace falta.
+
+# El arranque: la cabecera da INIT en 0x4010.
+0x4010   # INIT
+
+# La interrupcion: el arranque pone un salto a 0x8E75 en H.TIMI (0x8021).
+0x8E75
+
+# La tabla de 0x9D2B (salto por A x 2, 0x9D1D): 6.
+0x9DC9
+0x9E52
+0x9E7C
+0x9F88
+0xA04A
+# La tabla de 0x9DB7 (salto por A x 2, 0x9DA9): 9.
+0xA0E5
+0xA1F6
+0xA339
+0xA3E3
+0xA497
+0xA622
+0xA6BD
+0xA813
