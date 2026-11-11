@@ -2124,15 +2124,15 @@ cerca_gatito:		; ¿Toca? Segun lo que lleve (+0x1D, mas alto) y si esta agachado
 	ld a,(ix+004h)		;893e   ; agachado?
 	and a			;8941
 	jr nz,cerca_agachado		;8942   ; si
-cerca_y:		; ¿Toca en Y? A = la Y de IY menos la del protagonista (IX): C si queda entre B y C (con signo, de B a C)
+cerca_y:		; ¿Toca en Y? A = la Y de IY menos la del protagonista (IX): C (toca) si, con signo, queda entre C - 0x100 y B - 1 (B, el margen por un lado; C, 0x100 menos el del otro)
 	ld a,(iy+000h)		;8944   ; la Y del otro...
 	sub (ix+000h)		;8947   ; ...menos la del protagonista
 cerca_mira:
-	cp b			;894a   ; por debajo de B: no
-	ret c			;894b   ; no
-	cp c			;894c   ; por debajo de C: si
+	cp b			;894a   ; menos que B (de 0 a B - 1): toca
+	ret c			;894b   ; C
+	cp c			;894c   ; C o mas (de C - 0x100 a -1)?
 	jr c,cerca_no		;894d
-	scf			;894f   ; C: toca
+	scf			;894f   ; si: toca (C)
 	ret			;8950   ; C: toca
 cerca_no:
 	and a			;8951   ; NC: no

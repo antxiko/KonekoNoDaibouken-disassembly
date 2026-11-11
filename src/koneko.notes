@@ -543,13 +543,13 @@ C 0x8016 un byte a 0
 C 0x8019 256 bytes...
 C 0x801C ...17 veces
 C 0x801E la pila
-L 0x8944 cerca_y                   ¿Toca en Y? A = la Y de IY menos la del protagonista (IX): C si queda entre B y C (con signo, de B a C)
+L 0x8944 cerca_y                   ¿Toca en Y? A = la Y de IY menos la del protagonista (IX): C (toca) si, con signo, queda entre C - 0x100 y B - 1 (B, el margen por un lado; C, 0x100 menos el del otro)
 C 0x8944 la Y del otro...
 C 0x8947 ...menos la del protagonista
 L 0x894A cerca_mira
-C 0x894A por debajo de B: no
-C 0x894C por debajo de C: si
-C 0x894F C: toca
+C 0x894A menos que B (de 0 a B - 1): toca
+C 0x894C C o mas (de C - 0x100 a -1)?
+C 0x894F si: toca (C)
 L 0x8951 cerca_no
 C 0x8951 NC: no
 L 0x8953 cerca_agachado            Agachado: la Y de IY menos la del gatito entre B y 0xFA
@@ -2148,7 +2148,7 @@ C 0x892E a cero
 C 0x8933 fuera
 C 0x893C si
 C 0x8942 si
-C 0x894B no
+C 0x894B C
 C 0x8950 C: toca
 C 0x8952 NC
 C 0x8956 la Y del gatito
