@@ -32,8 +32,18 @@ Las dos pantallas, montadas ejecutando `escena_pon` (0x9B15) con la RAM y la VRA
 ![ROUND3-3: la pantalla 0x67, detrás de la meta](../imagenes/escondida_3-3.png)
 
 La de la cascada es la que apunta a 0xBF80, entre la música ([Curiosidades](CURIOSIDADES.html)). Para llegar a ellas
-hay que cruzar la puerta sin entrar, saltando por encima en el momento justo: eso está leído en el código, **no se ha
-jugado**.
+jugando hay que cruzar la puerta sin entrar, saltando por encima en el momento justo: eso está leído en el código.
+
+**Forzadas en openMSX** (`tools/guiones/escondidas.tcl`): con SELECT, un gancho en `pantalla_siguiente` pone la
+posición en la de la casita la primera vez que el gatito llega al borde derecho de 2-2 y de 3-3, y el juego hace lo
+demás: sube a la posición 9 y entra la pantalla escondida con su scroll, sus objetos y sus enemigos. En 3-3, además,
+el piloto no llegaba solo al borde y al gatito se le pone en la X 0xF0. La tabla de nombres grabada casa con la
+montada ejecutando `escena_pon`: en 2-2, las 704 casillas; en 3-3 cambian 28, las del objeto de la derecha y el agua,
+que el juego pinta después.
+
+![ROUND2-2 forzada: entra la pantalla 0x66](../imagenes/escondida_2-2.gif)
+
+![ROUND3-3 forzada: entra la pantalla 0x67](../imagenes/escondida_3-3.gif)
 
 ## Fallo: pasados los 9.999.990 puntos, el récord a cero
 

@@ -31,9 +31,19 @@ The two screens, built by running `escena_pon` (0x9B15) with the RAM and VRAM re
 
 ![ROUND3-3: screen 0x67, behind the goal](imagenes/escondida_3-3.png)
 
-The waterfall one is the one pointing to 0xBF80, among the music ([Curiosities](CURIOSITIES.html)). Getting to them
-means crossing the door without going in, jumping over it at the right moment: that is read from the code, **it has
-not been played**.
+The waterfall one is the one pointing to 0xBF80, among the music ([Curiosities](CURIOSITIES.html)). Getting to them by
+playing means crossing the door without going in, jumping over it at the right moment: that is read from the code.
+
+**Forced in openMSX** (`tools/guiones/escondidas.tcl`): with SELECT, a hook in `pantalla_siguiente` sets the position to
+the house's the first time the kitten reaches the right edge on 2-2 and 3-3, and the game does the rest: it goes up to
+position 9 and the hidden screen comes in with its scroll, its objects and its enemies. On 3-3 the pilot did not reach
+the edge by itself, so the kitten is also put at X 0xF0. The recorded name table matches the one built by running
+`escena_pon`: on 2-2, all 704 tiles; on 3-3, 28 differ, those of the object on the right and the water, which the game
+draws afterwards.
+
+![ROUND2-2 forced: screen 0x66 comes in](imagenes/escondida_2-2.gif)
+
+![ROUND3-3 forced: screen 0x67 comes in](imagenes/escondida_3-3.gif)
 
 ## Bug: past 9,999,990 points, the high score to zero
 

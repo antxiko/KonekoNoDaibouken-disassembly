@@ -12,10 +12,12 @@ Los tramos salen de la RAM grabada: 0xE000 jugando, 0xE027 la demostracion, 0xE0
   forzada     el mismo piloto con SELECT; cada fase se da por acabada con un poke (FORZADA): las 18 fases y el final
   teclas      STOP y F1
   continuar   ESC pulsada en el titulo: sin vidas, CONTINUE PUSH TRIG1 y cuatro vidas mas
+  escondidas  FORZADA (tools/guiones/escondidas.tcl): en 2-2 y 3-3 un gancho en 0x94D3 pone la posicion 8 y entra la
+              pantalla escondida de detras de la meta; en 3-3, ademas, el gatito llevado al borde derecho
 
 Las grabaciones son grandes: cada una se lee UNA vez.
 
-Uso: gifs.py docs/imagenes
+Uso: gifs.py docs/imagenes [grabacion ...]   (con grabaciones, solo sus GIF)
 """
 import os
 import sys
@@ -43,12 +45,17 @@ TRAMOS = [
     ("pausa.gif", "teclas", 880, 1450, 3),              # STOP
     ("f1.gif", "teclas", 1790, 1900, 2),                # F1: una vida menos
     ("continuar.gif", "continuar", 5300, 5420, 2),      # ESC en el titulo: CONTINUE PUSH TRIG1
+    ("escondida_2-2.gif", "escondidas", 6780, 7000, 2),     # FORZADA: ROUND2-2, la pantalla 0x66 detras de la meta
+    ("escondida_3-3.gif", "escondidas", 13860, 14110, 2),   # FORZADA: ROUND3-3, la pantalla 0x67 detras de la meta
 ]
 
 
 def main(salida):
     raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    solo = sys.argv[2:]
     for grab in dict.fromkeys(t[1] for t in TRAMOS):
+        if solo and grab not in solo:
+            continue
         mios = [t for t in TRAMOS if t[1] == grab]
         gifs = {t[0]: vdp.Gif() for t in mios}
         tope = max(t[3] for t in mios) + max(t[4] for t in mios)
