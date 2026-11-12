@@ -94,6 +94,7 @@ imagenes: $(ROM)
 	$(PYIMG) tools/gifs.py docs/imagenes
 	$(PYIMG) tools/hojas.py docs/imagenes
 	$(PYIMG) tools/escondidas.py docs/imagenes
+	$(PYIMG) tools/mapas.py docs/imagenes
 
 musica: $(ROM)
 	$(PYIMG) tools/musica.py todas docs/audio

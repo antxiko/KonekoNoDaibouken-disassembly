@@ -25,6 +25,23 @@ are gone through.
 
 ![The city (1-6)](imagenes/ciudad.gif)
 
+## The maps
+
+The eighteen stages, each with its screens in its list's order (0x4038), left to right and at half size. They are
+**drawn by running the ROM**: each screen is built by `escena_pon` (0x9B15) with the RAM and VRAM recorded on its
+stage, which carry its scene's tile drawings and colours (`tools/mapas.py`). They come without the scoreboard, the
+sprites or the objects, which the game draws afterwards. The last one in each row is the goal house, and on 2-2 and
+3-3 the hidden screens of [Secrets and bugs](SECRETS-AND-BUGS.html) follow.
+
+Check: the 27 screens the forced recording goes through come out as the recorded name table, except for 4 to 57
+tiles out of 704 on each: the objects and the water or whatever is animated, which the game draws on top.
+
+![PEACH: ROUND1-1 to 1-6](imagenes/mapa_peach.png)
+
+![APPLE: ROUND2-1 to 2-6](imagenes/mapa_apple.png)
+
+![LEMON: ROUND3-1 to 3-6](imagenes/mapa_lemon.png)
+
 ## The balloon at the end of a stage
 
 When a stage ends, a balloon rises in column 17, with a letter or a digit of the stage on it (0x8904). Then the time

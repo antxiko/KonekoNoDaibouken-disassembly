@@ -24,6 +24,23 @@ quedan menos de tres vidas se ponen nueve. Así se recorren las dieciocho fases 
 
 ![La ciudad (1-6)](../imagenes/ciudad.gif)
 
+## Los mapas
+
+Las dieciocho fases, cada una con sus pantallas en el orden de su lista (0x4038), de izquierda a derecha y a la mitad
+de tamaño. Están **pintadas ejecutando la ROM**: cada pantalla la monta `escena_pon` (0x9B15) con la RAM y la VRAM
+grabadas en su fase, que traen los dibujos y colores de su escena (`tools/mapas.py`). Van sin marcador, sin sprites
+y sin los objetos, que el juego pinta después. La última de cada fila es la casita de la meta, y en 2-2 y 3-3 siguen
+las pantallas escondidas de [Secretos y fallos](SECRETOS-Y-FALLOS.html).
+
+Cotejo: las 27 pantallas por las que pasa la grabación forzada salen como la tabla de nombres grabada, salvo entre 4 y
+57 casillas de 704 en cada una: los objetos y el agua o lo que se anima, que el juego pinta encima.
+
+![PEACH: ROUND1-1 a 1-6](../imagenes/mapa_peach.png)
+
+![APPLE: ROUND2-1 a 2-6](../imagenes/mapa_apple.png)
+
+![LEMON: ROUND3-1 a 3-6](../imagenes/mapa_lemon.png)
+
 ## El globo del final de fase
 
 Al acabar una fase, en la columna 17 sube un globo, y en él, una letra o una cifra de la fase (0x8904). Después se
