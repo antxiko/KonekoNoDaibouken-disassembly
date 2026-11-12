@@ -39,8 +39,8 @@ Entre los textos del marcador está GAME START (0x90EB), y ningún puntero llega
 
 ## Una pantalla dentro de la música
 
-El último puntero de la tabla de las pantallas (0x41E2) apunta a 0xBF80, en medio de las piezas de la música. Si alguna fase la
-usa no se ha comprobado.
+El último puntero de la tabla de las pantallas (0x41E2) apunta a 0xBF80, en medio de las piezas de la música. La usa la ronda
+3-3, detrás de la meta: está en [Secretos y fallos](SECRETOS-Y-FALLOS.html).
 
 ## Código que nadie llama
 

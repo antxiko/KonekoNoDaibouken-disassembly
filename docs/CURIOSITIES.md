@@ -41,8 +41,8 @@ measured.
 
 ## A screen inside the music
 
-The last pointer of the screen table (0x41E2) points to 0xBF80, in the middle of the music pieces. Whether any stage
-uses it has not been checked.
+The last pointer of the screen table (0x41E2) points to 0xBF80, in the middle of the music pieces. ROUND3-3 uses it,
+behind the goal: see [Secrets and bugs](SECRETS-AND-BUGS.html).
 
 ## Code nobody calls
 

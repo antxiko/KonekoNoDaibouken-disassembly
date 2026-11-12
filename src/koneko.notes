@@ -52,7 +52,7 @@ C 0x8DFC sus cifras
 L 0x8F0D palanca                   La palanca: los cursores o el mando 1 (GTSTCK 0 y 1), en 0xE180
 C 0x8F0E GTSTCK 0: los cursores
 C 0x8F16 GTSTCK 1: el mando 1
-C 0x8F1D uno u otro
+C 0x8F1D uno u otro: un OR de dos numeros de direccion (1-8, no bits): con los dos a la vez sale otra
 C 0x8F22 la demostracion?
 C 0x8F6F ...o lo del mando
 C 0x8F71 una...
@@ -245,7 +245,7 @@ C 0x8D60 jugando?
 C 0x8D65 las dos ultimas
 C 0x8D69 en BCD
 C 0x8D82 las decenas de millar
-C 0x8D8C se pasa: el record = los puntos
+C 0x8D8C se pasa: el record = los puntos (pero ya han dado la vuelta: puntos y record, casi a cero)
 L 0x8D9E puntos_mira
 C 0x8E50 jugando?
 C 0x8E56 el boton?
