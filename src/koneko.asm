@@ -5341,7 +5341,7 @@ andarin:		; Los tipos 0 y 1: anda por el suelo (dibujo 0x68, color 15; 13 en la 
 	ld a,(iy+005h)		;a0e5   ; al salir...
 	and a			;a0e8
 	jr nz,andarin_va		;a0e9
-	ld (iy+002h),078h		;a0eb   ; ...dibujo 0x68, color 15
+	ld (iy+002h),078h		;a0eb   ; ...dibujo 0x78 (al salir; andando, 0x68), color 15
 	ld (iy+003h),00fh		;a0ef
 	inc (iy+005h)		;a0f3
 	ld a,(0e04ah)		;a0f6   ; la escena 4?

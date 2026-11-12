@@ -1570,7 +1570,7 @@ L 0xA0C9 explosion_dibujo
 L 0xA0E0 explosion_color9
 L 0xA0E5 andarin                   Los tipos 0 y 1: anda por el suelo (dibujo 0x68, color 15; 13 en la escena 4) un punto cada 5 cuadros, da la vuelta en los bordes y las paredes y cae si no hay suelo (fuera por abajo); solo uno a la vez baja de su plataforma (0xE1BA); si toca al gatito, tocado; el tiro en arco lo derrota: 50 puntos (en pantalla) y la explosion
 C 0xA0E5 al salir...
-C 0xA0EB ...dibujo 0x68, color 15
+C 0xA0EB ...dibujo 0x78 (al salir; andando, 0x68), color 15
 C 0xA0F6 la escena 4?
 C 0xA0FC color 13
 L 0xA101 andarin_va
